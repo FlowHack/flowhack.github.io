@@ -157,7 +157,7 @@
         var cardBg = 'templates/invitation_card.jpg';
         var menuUrl = weddingData.links.restaurantMenu;
 
-        var html = '';
+        var html = '<div class="invitation-wrapper">';
 
         // Ограничивающий контейнер для конверта и карточки
         html += '<div class="invitation-card-container">';
@@ -185,6 +185,7 @@
         html += '</div>';
 
         html += '</div>'; // .invitation-card-container
+        html += '</div>'; // .invitation-wrapper
 
         return html;
     }

@@ -43,10 +43,12 @@ body.no-scroll html {
     min-height: 100vh;
 }
 
-#app:has(.invitation-card-container) {
+.invitation-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    padding: 0;
 }
 
 /* --- Desktop: центрированный контейнер --- */
@@ -253,11 +255,6 @@ body.no-scroll html {
     .invitation-card-container {
         max-height: 850px;
     }
-}
-
-.page-ornament:has(.invitation-card-container)::before,
-.page-ornament:has(.invitation-card-container)::after {
-    display: none;
 }
 
 .envelope-layer {
