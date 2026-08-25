@@ -1,0 +1,730 @@
+/* ========================================
+   Свадебное приглашение — кастомные стили
+   ======================================== */
+
+/* --- Шрифты --- */
+@font-face {
+    font-family: 'Nautilus';
+    src: url('assets/Nautilus.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('assets/CormorantGaramond-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('assets/CormorantGaramond-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+}
+
+/* --- Базовые стили --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e8e4df !important;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.no-scroll,
+body.no-scroll html {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+#app {
+    min-height: 100vh;
+}
+
+#app:has(.invitation-card-container) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Desktop: центрированный контейнер --- */
+@media (min-width: 769px) {
+    .app-wrapper {
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 100vh;
+    }
+}
+
+/* --- Шапка (навигация) --- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+    padding: 8px 16px 8px 10px;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.site-header.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.site-header a {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: #1a2744;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    padding: 4px 8px;
+    border: 1px solid #c9a96e;
+    border-radius: 4px;
+    transition: background 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.site-header a:hover {
+    background: #1a2744;
+    color: #fff;
+}
+
+@media (min-width: 769px) {
+    .site-header {
+        padding: 12px 16px;
+    }
+    .site-header a {
+        font-size: 0.8rem;
+    }
+}
+
+/* --- Главная страница: форма входа --- */
+.home-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    margin: 0 0 24px 0;
+}
+
+.home-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+    .home-form {
+        flex-direction: row;
+        max-width: 400px;
+    }
+}
+
+.home-input {
+    flex: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #1a2744;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1.5px solid #c9a96e;
+    border-radius: 6px;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 769px) {
+    .home-input {
+        text-align: left;
+    }
+}
+
+.home-input::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+.home-input:focus {
+    border-color: #1a2744;
+    box-shadow: 0 0 0 3px rgba(26, 39, 68, 0.1);
+}
+
+.home-btn {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: #1a2744;
+    border: 1.5px solid #c9a96e;
+    border-radius: 6px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.home-btn:hover {
+    background: #c9a96e;
+    color: #1a2744;
+}
+
+.home-error {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: #c0392b;
+    text-align: center;
+    margin: 16px 0 0 0;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.home-error.visible {
+    opacity: 1;
+    max-height: 60px;
+}
+
+/* --- Конверт (заставка) --- */
+.invitation-card-container {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    height: 90vh;
+    max-height: 800px;
+}
+
+@media (min-width: 769px) {
+    .invitation-card-container {
+        max-height: 850px;
+    }
+}
+
+.page-ornament:has(.invitation-card-container)::before,
+.page-ornament:has(.invitation-card-container)::after {
+    display: none;
+}
+
+.envelope-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #e8e4df;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out;
+    will-change: transform, opacity;
+}
+
+.envelope-layer.sliding-up {
+    transform: translateY(-120%);
+    opacity: 0;
+}
+
+.envelope-layer.hidden {
+    display: none;
+}
+
+/* --- Печать (пульс) --- */
+.seal-container {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    cursor: pointer;
+    margin-bottom: 5%;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.seal-hitbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.seal-pulse {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(201, 169, 110, 0.5);
+    animation: sealPulse 2s ease-in-out infinite;
+}
+
+@keyframes sealPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0;
+    }
+}
+
+/* --- Карточка приглашения --- */
+.card-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #e8e4df;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: transform, opacity;
+    overflow-y: auto;
+}
+
+.card-layer.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-content {
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+@media (max-width: 340px) {
+    .card-content {
+        padding: 8px 6px;
+        min-height: auto;
+        height: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    .card-content {
+        padding: 60px 30px;
+    }
+}
+
+.card-inner {
+    padding: 40px 28px;
+    text-align: center;
+    max-width: 360px;
+    width: 100%;
+    animation: cardFadeIn 0.8s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+@media (max-width: 340px) {
+    .card-inner {
+        padding: 8px 6px;
+    }
+    .card-inner h1 {
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+        line-height: 1.2;
+    }
+    .card-inner p {
+        font-size: 0.65rem;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+    .card-btn {
+        font-size: 0.65rem;
+        padding: 4px 8px;
+        margin: 2px;
+    }
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 769px) {
+    .card-inner {
+        padding: 48px 36px;
+    }
+}
+
+.card-inner h1 {
+    font-family: 'Nautilus', serif;
+    font-size: 1.4rem;
+    color: #1a2744;
+    margin: 0 0 16px 0;
+    line-height: 1.4;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 769px) {
+    .card-inner h1 {
+        font-size: 1.6rem;
+    }
+}
+
+.card-inner p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: #1a2744;
+    margin: 0 0 28px 0;
+    line-height: 1.6;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+/* --- Кнопки внутри карточки --- */
+.card-btn {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: #1a2744;
+    text-decoration: none;
+    border: 1.5px solid #c9a96e;
+    border-radius: 5px;
+    padding: 10px 22px;
+    margin: 6px;
+    background: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.card-btn:hover {
+    background: #1a2744;
+    color: #fff;
+    border-color: #1a2744;
+}
+
+/* --- Страницы плана и 404: декоративные завитушки --- */
+.page-ornament {
+    position: relative;
+    min-height: 100vh;
+    background: transparent;
+}
+
+.page-ornament::before,
+.page-ornament::after {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    pointer-events: none;
+    /* Сложный флористический SVG: синие акварельные пятна (разная opacity) + золотые веточки */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M0,0 C100,0 160,60 180,140 C130,110 80,70 0,50 Z' fill='%231a2744' opacity='0.12'/%3E%3Cpath d='M0,0 C20,90 60,160 140,180 C110,130 70,80 50,0 Z' fill='%231a2744' opacity='0.08'/%3E%3Cpath d='M0,50 Q40,80 60,130 Q30,130 0,90 Z' fill='%231a2744' opacity='0.4'/%3E%3Cpath d='M0,0 Q120,40 170,170' fill='none' stroke='%23c9a96e' stroke-width='1.2'/%3E%3Cpath d='M60,20 Q100,50 140,40' fill='none' stroke='%23c9a96e' stroke-width='1'/%3E%3Cpath d='M140,40 Q160,30 170,50 Q150,60 140,40 Z' fill='none' stroke='%23c9a96e' stroke-width='1'/%3E%3Cpath d='M30,70 Q70,110 90,160' fill='none' stroke='%23c9a96e' stroke-width='1'/%3E%3Cpath d='M90,160 Q110,180 100,190 Q80,170 90,160 Z' fill='none' stroke='%23c9a96e' stroke-width='1'/%3E%3Ccircle cx='170' cy='170' r='3' fill='%23c9a96e'/%3E%3Ccircle cx='160' cy='185' r='2' fill='%23c9a96e'/%3E%3Ccircle cx='185' cy='160' r='2.5' fill='%23c9a96e'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.page-ornament::before {
+    top: 0;
+    left: 0;
+}
+
+.page-ornament::after {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* Контент страницы плана/404 */
+.page-content {
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+}
+
+@media (min-width: 769px) {
+    .page-content {
+        padding-top: 80px;
+    }
+}
+
+.page-title {
+    font-family: 'Nautilus', serif;
+    font-size: 1.5rem;
+    color: #1a2744;
+    text-align: center;
+    margin: 0 0 24px 0;
+    line-height: 1.3;
+}
+
+@media (min-width: 769px) {
+    .page-title {
+        font-size: 1.7rem;
+    }
+}
+
+/* --- Элементы плана --- */
+.plan-day {
+    margin-bottom: 28px;
+}
+
+.plan-day-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #c9a96e;
+    text-align: center;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+}
+
+.plan-event {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    align-items: flex-start;
+}
+
+.plan-event:last-child {
+    border-bottom: none;
+}
+
+.plan-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #c9a96e;
+    white-space: nowrap;
+    min-width: 80px;
+}
+
+.plan-details {
+    flex: 1;
+}
+
+.plan-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #1a2744;
+    margin: 0 0 4px 0;
+}
+
+.ryotei-link {
+    color: #c9a96e;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(201, 169, 110, 0.5);
+    transition: color 0.2s ease, border-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.ryotei-link:hover {
+    color: #1a2744;
+    border-color: #1a2744;
+}
+
+.plan-location {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+/* --- Индивидуальный план: секция заселения --- */
+.stay-section {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1.5px solid rgba(201, 169, 110, 0.3);
+}
+
+.stay-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1a2744;
+    text-align: center;
+    margin: 0 0 14px 0;
+}
+
+.stay-item {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: #444;
+    text-align: center;
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+.stay-item strong {
+    color: #1a2744;
+}
+
+/* --- Ссылка «Назад» --- */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 28px;
+}
+
+.back-link a {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #c9a96e;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.4);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.back-link a:hover {
+    color: #1a2744;
+    border-color: #1a2744;
+}
+
+/* --- 404 --- */
+.error-title {
+    font-family: 'Nautilus', serif;
+    font-size: 1.6rem;
+    color: #1a2744;
+    text-align: center;
+    margin: 0 0 16px 0;
+}
+
+@media (min-width: 769px) {
+    .error-title {
+        font-size: 1.8rem;
+    }
+}
+
+.error-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: #555;
+    text-align: center;
+    margin: 0 0 32px 0;
+    line-height: 1.6;
+}
+
+.error-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: #fff;
+    background: #1a2744;
+    border: 2px solid #c9a96e;
+    border-radius: 6px;
+    padding: 14px 24px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.error-btn:hover {
+    background: #c9a96e;
+    color: #1a2744;
+}
+
+/* --- Ссылка «Открыть в картах» --- */
+.map-link-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    color: #c9a96e;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.map-link-icon:hover {
+    color: #1a2744;
+}
+
+.map-link-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* --- Скрытие/показ с фейдом (для переходов между страницами) --- */
+.fade-enter {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-enter.active {
+    opacity: 1;
+    transform: translateY(0);
+}

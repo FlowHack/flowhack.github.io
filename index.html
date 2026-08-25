@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу Дмитрия и Екатерины</title>
+    <meta name="description" content="Приглашаем Вас на торжество по случаю бракосочетания Дмитрия и Екатерины. 3 октября 2026 года, Краснодар.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Приглашение на свадьбу Дмитрия и Екатерины">
+    <meta property="og:description" content="Приглашаем Вас на торжество по случаю бракосочетания. 3 октября 2026 года, Краснодар.">
+    <meta property="og:image" content="https://flowhack.github.io/templates/invitation_card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="favicon.ico">
+
+    <!-- Шрифты: предзагрузка для ускорения отрисовки -->
+    <link rel="preload" href="assets/Nautilus.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="assets/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/CormorantGaramond-Medium.ttf" as="font" type="font/ttf" crossorigin>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1a2744',
+                        gold: '#c9a96e',
+                        'gold-light': '#d4b87a',
+                    },
+                    fontFamily: {
+                        nautilus: ['Nautilus', 'serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div id="app" class="relative min-h-screen"></div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
