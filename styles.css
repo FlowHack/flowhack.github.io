@@ -609,6 +609,17 @@ body.no-scroll #app {
     color: #1a2744;
 }
 
+.stay-address {
+    color: #1a2744;
+    text-decoration: underline;
+    text-decoration-color: #c9a96e;
+    text-underline-offset: 2px;
+}
+
+.stay-address:hover {
+    color: #c9a96e;
+}
+
 /* --- Ссылка «Назад» --- */
 .back-link {
     display: block;

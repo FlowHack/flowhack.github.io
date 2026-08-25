@@ -40,7 +40,7 @@ const weddingData = {
                     time: "18:00 – 19:30",
                     desc: "Фотосессия в парке «Краснодар»",
                     location: "Парк «Краснодар»",
-                    mapLink: "https://yandex.ru/maps/?text=Парк+Краснодар"
+                    mapLink: "https://yandex.ru/maps/org/park_krasnodar/77426465118/"
                 },
                 {
                     time: "20:30 – 21:00",
@@ -64,19 +64,19 @@ const weddingData = {
                     time: "13:45",
                     desc: "Заход в «Японский сад»",
                     location: "Парк «Краснодар», Японский сад",
-                    mapLink: "https://yandex.ru/maps/?text=Парк+Краснодар+Японский+сад"
+                    mapLink: "https://yandex.ru/maps/org/yaponskiy_sad/38080582022/"
                 },
                 {
                     time: "14:15 – 16:15",
                     desc: "Посещение ресторана «Рётэй»",
                     location: "г. Краснодар, ул. Длинная, 58",
-                    mapLink: "https://yandex.ru/maps/?text=Рётэй+Краснодар+Длинная+58"
+                    mapLink: "https://yandex.ru/maps/org/ryotey/44285147668/"
                 },
                 {
                     time: "с 16:15",
                     desc: "Свободная прогулка по парку «Краснодар» и Японскому саду",
                     location: "Парк «Краснодар»",
-                    mapLink: "https://yandex.ru/maps/?text=Парк+Краснодар"
+                    mapLink: "https://yandex.ru/maps/org/park_krasnodar/77426465118/"
                 }
             ]
         }
