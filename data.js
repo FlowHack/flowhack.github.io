@@ -16,25 +16,25 @@ const weddingData = {
                     time: "15:50",
                     desc: "Выезд в ЗАГС",
                     location: "г. Краснодар, ул. им. Петра Метальникова, 28",
-                    mapLink: "https://yandex.ru/maps/?text=Краснодар+ул+Петра+Метальникова+28"
+                    mapLink: "https://yandex.ru/maps/-/CTDJrZNR"
                 },
                 {
                     time: "16:30 – 17:00",
                     desc: "Фотосессия возле ЗАГСа",
                     location: "г. Краснодар, ул. Офицерская, 47",
-                    mapLink: "https://yandex.ru/maps/?text=Краснодар+ул+Офицерская+47"
+                    mapLink: "https://yandex.ru/maps/-/CTDJr0p6"
                 },
                 {
                     time: "17:00",
                     desc: "Церемония регистрации брака",
                     location: "г. Краснодар, ул. Офицерская, 47",
-                    mapLink: "https://yandex.ru/maps/?text=Краснодар+ул+Офицерская+47"
+                    mapLink: "https://yandex.ru/maps/-/CTDJr0p6"
                 },
                 {
                     time: "17:30",
                     desc: "Трансфер до парка «Краснодар»",
                     location: "г. Краснодар, ул. Офицерская, 47",
-                    mapLink: "https://yandex.ru/maps/?text=Краснодар+ул+Офицерская+47"
+                    mapLink: "https://yandex.ru/maps/-/CTDJr0p6"
                 },
                 {
                     time: "18:00 – 19:30",
@@ -46,7 +46,7 @@ const weddingData = {
                     time: "20:30 – 21:00",
                     desc: "Сбор гостей",
                     location: "г. Краснодар, ул. им. Петра Метальникова, 28",
-                    mapLink: "https://yandex.ru/maps/?text=Краснодар+ул+Петра+Метальникова+28"
+                    mapLink: "https://yandex.ru/maps/-/CTDJrZNR"
                 }
             ]
         },
@@ -58,7 +58,7 @@ const weddingData = {
                     time: "12:00",
                     desc: "Выезд в парк «Краснодар»",
                     location: "г. Краснодар, ул. им. Петра Метальникова, 28",
-                    mapLink: "https://yandex.ru/maps/?text=Краснодар+ул+Петра+Метальникова+28"
+                    mapLink: "https://yandex.ru/maps/-/CTDJrZNR"
                 },
                 {
                     time: "13:45",
@@ -98,7 +98,8 @@ const weddingData = {
             checkIn: {
                 date: "02.10.2026",
                 time: "после 14:00",
-                address: "г. Краснодар, ул. им. Евгении Жигуленко, 9"
+                address: "г. Краснодар, ул. им. Евгении Жигуленко, 9",
+                mapLink: "https://yandex.ru/maps/-/CTDJrSNA"
             },
             checkOut: {
                 date: "06.10.2026",
@@ -113,7 +114,8 @@ const weddingData = {
             checkIn: {
                 date: "02.10.2026",
                 time: "после 14:00",
-                address: "г. Краснодар, ул. им. Евгении Жигуленко, 9"
+                address: "г. Краснодар, ул. им. Евгении Жигуленко, 9",
+                mapLink: "https://yandex.ru/maps/-/CTDJrSNA"
             },
             checkOut: {
                 date: "06.10.2026",
@@ -128,7 +130,8 @@ const weddingData = {
             checkIn: {
                 date: "02.10.2026",
                 time: "после 14:00",
-                address: "г. Краснодар, ул. им. Евгении Жигуленко, 9"
+                address: "г. Краснодар, ул. им. Евгении Жигуленко, 9",
+                mapLink: "https://yandex.ru/maps/-/CTDJrSNA"
             },
             checkOut: {
                 date: "06.10.2026",
@@ -143,7 +146,8 @@ const weddingData = {
             checkIn: {
                 date: "02.10.2026",
                 time: "после 16:00",
-                address: "г. Краснодар, ул. им. Петра Метальникова, 28"
+                address: "г. Краснодар, ул. им. Петра Метальникова, 28",
+                mapLink: "https://yandex.ru/maps/-/CTDJrZNR"
             },
             checkOut: {
                 date: "04.10.2026",
@@ -158,7 +162,8 @@ const weddingData = {
             checkIn: {
                 date: "02.10.2026",
                 time: "после 16:00",
-                address: "г. Краснодар, ул. им. Петра Метальникова, 28"
+                address: "г. Краснодар, ул. им. Петра Метальникова, 28",
+                mapLink: "https://yandex.ru/maps/-/CTDJrZNR"
             },
             checkOut: {
                 date: "04.10.2026",

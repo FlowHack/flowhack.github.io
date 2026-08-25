@@ -293,7 +293,11 @@
                 inner += '<div class="stay-item"><strong>Заезд:</strong> ' +
                     esc(guest.checkIn.date) + ', ' + esc(guest.checkIn.time);
                 if (guest.checkIn.address) {
-                    inner += '<br><a href="https://yandex.ru/maps/?text=' + encodeURIComponent(guest.checkIn.address) + '" target="_blank" rel="noopener" class="stay-address">' + esc(guest.checkIn.address) + '</a>';
+                    if (guest.checkIn.mapLink) {
+                        inner += '<br><a href="' + guest.checkIn.mapLink + '" target="_blank" rel="noopener" class="stay-address">' + esc(guest.checkIn.address) + '</a>';
+                    } else {
+                        inner += '<br>' + esc(guest.checkIn.address);
+                    }
                 }
                 inner += '</div>';
             }
