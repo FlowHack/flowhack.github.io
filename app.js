@@ -349,12 +349,14 @@
     function route() {
         var hash = getHash();
         document.body.classList.remove('no-scroll');
+        document.documentElement.classList.remove('no-scroll');
         document.body.style.overflow = '';
 
         // Пустой хэш → главная
         if (!hash || hash === '/') {
             currentGuestSlug = null;
             document.body.classList.add('no-scroll');
+            document.documentElement.classList.add('no-scroll');
             app.innerHTML = renderHome();
             activateFadeIn();
             initHomeLogic();
@@ -397,6 +399,7 @@
 
             currentGuestSlug = slug;
             document.body.classList.add('no-scroll');
+            document.documentElement.classList.add('no-scroll');
             app.innerHTML = renderInvitation(slug);
 
             // Инициализация анимации конверта
