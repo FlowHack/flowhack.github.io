@@ -483,12 +483,12 @@ body.no-scroll #app {
     z-index: 1;
     max-width: 400px;
     margin: 0 auto;
-    padding: 60px 24px 40px;
+    padding: 24px 24px 40px;
 }
 
 @media (min-width: 769px) {
     .page-content {
-        padding-top: 80px;
+        padding-top: 40px;
     }
 }
 
