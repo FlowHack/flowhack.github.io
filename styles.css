@@ -67,9 +67,9 @@ body.no-scroll html {
     width: 100%;
     box-sizing: border-box;
     z-index: 100;
-    padding: 8px 16px 8px 10px;
+    padding: 10px 16px 10px 12px;
     display: flex;
-    gap: 4px;
+    gap: 6px;
     justify-content: center;
     flex-wrap: wrap;
     opacity: 0;
@@ -85,14 +85,14 @@ body.no-scroll html {
 .site-header a {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     letter-spacing: 0.04em;
     color: #1a2744;
     text-decoration: none;
     background: rgba(255, 255, 255, 0.85);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
-    padding: 4px 8px;
+    padding: 6px 14px;
     border: 1px solid #c9a96e;
     border-radius: 4px;
     transition: background 0.3s ease, color 0.3s ease;
@@ -111,7 +111,7 @@ body.no-scroll html {
         padding: 12px 16px;
     }
     .site-header a {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -208,6 +208,36 @@ body.no-scroll html {
 .home-error.visible {
     opacity: 1;
     max-height: 60px;
+}
+
+.home-links {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.home-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: #1a2744;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    padding: 6px 14px;
+    border: 1px solid #c9a96e;
+    border-radius: 4px;
+    transition: background 0.3s ease, color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.home-link:hover {
+    background: #1a2744;
+    color: #fff;
 }
 
 /* --- Конверт (заставка) --- */

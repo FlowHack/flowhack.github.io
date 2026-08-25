@@ -87,8 +87,8 @@
 
     // --- Главная: форма входа по имени ---
     function renderHome() {
+        var menuUrl = weddingData.links.restaurantMenu;
         var html = '<div class="app-wrapper page-ornament">' +
-            renderHeader(true) +
             '<div class="page-content fade-enter">' +
             '<h1 class="page-title">Приглашаем Вас на свадьбу<br>Дмитрия и Екатерины</h1>' +
             '<p class="home-subtitle">Введите ваше имя для входа</p>' +
@@ -97,6 +97,10 @@
             '<button id="guest-submit-btn" class="home-btn">Открыть</button>' +
             '</div>' +
             '<p id="home-error" class="home-error">Имя не найдено. Проверьте правильность написания.</p>' +
+            '<div class="home-links">' +
+            '<a href="#/plan" class="home-link">План</a>' +
+            '<a href="' + menuUrl + '" target="_blank" rel="noopener" class="home-link">Меню ресторана</a>' +
+            '</div>' +
             '</div></div>';
         return html;
     }
