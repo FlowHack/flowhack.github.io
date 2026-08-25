@@ -50,10 +50,12 @@ html, body {
 
 #app {
     min-height: 100vh;
+    min-height: 100dvh;
 }
 
 body.no-scroll #app {
     height: 100vh;
+    height: 100dvh;
     overflow: hidden;
 }
 
@@ -62,6 +64,7 @@ body.no-scroll #app {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    height: 100dvh;
     padding: 0;
     box-sizing: border-box;
 }
@@ -263,6 +266,7 @@ body.no-scroll #app {
     width: 90%;
     max-width: 400px;
     height: 90vh;
+    height: 90dvh;
     max-height: 800px;
 }
 
