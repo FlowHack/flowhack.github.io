@@ -42,31 +42,9 @@
         return escaped.replace(/Рётэй/g, '<a href="' + menuUrl + '" target="_blank" rel="noopener" class="ryotei-link">Рётэй</a>');
     }
 
-    // --- Рендер шапки ---
-    function renderHeader(show) {
-        var hash = getHash();
-        var slug = currentGuestSlug;
-        var isInvitation = /^[\w-]+$/.test(hash) && hash !== 'plan';
-        var isInvitationPlan = /^[\w-]+\/plan$/.test(hash);
-
-        if (isInvitation || isInvitationPlan) {
-            slug = hash.replace(/\/plan$/, '');
-        }
-
-        var planLink = slug ? '#/' + slug + '/plan' : '#/plan';
-        var menuUrl = weddingData.links.restaurantMenu;
-
-        return '<header class="site-header ' + (show ? 'visible' : '') + '"' +
-            (show ? ' style="transition: none;"' : '') + '>' +
-            '<a href="' + planLink + '">План</a>' +
-            '<a href="' + menuUrl + '" target="_blank" rel="noopener">Меню ресторана</a>' +
-            '</header>';
-    }
-
     // --- Шаблон страницы: планы / 404 ---
-    function pageShell(headerShown, innerHtml) {
+    function pageShell(innerHtml) {
         return '<div class="app-wrapper page-ornament">' +
-            renderHeader(headerShown) +
             '<div class="page-content fade-enter">' +
             innerHtml +
             '</div>' +
@@ -272,7 +250,7 @@
 
         inner += '<div class="back-link"><a href="' + backLink + '">' + esc(backText) + '</a></div>';
 
-        return pageShell(true, inner);
+        return pageShell(inner);
     }
 
     // --- Индивидуальный план ---
@@ -330,7 +308,7 @@
 
         inner += '<div class="back-link"><a href="#/' + slug + '">Назад к приглашению</a></div>';
 
-        return pageShell(false, inner);
+        return pageShell(inner);
     }
 
     // --- 404 ---
@@ -339,7 +317,7 @@
             '<p class="error-text">Возможно, ссылка устарела или в ней опечатка.</p>' +
             '<a href="#/" class="error-btn">Вернуться к форме входа</a>';
 
-        return pageShell(true, inner);
+        return pageShell(inner);
     }
 
     // ============================================================
