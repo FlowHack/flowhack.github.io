@@ -86,6 +86,7 @@ const weddingData = {
      * Список приглашённых гостей.
      * slug — часть URL хэша: #/{slug}
      * welcomeName — имя в обращении на карточке
+     * gender — пол гостя: 'female' | 'male' (определяет персональный дресс-код)
      * aliases — уменьшительно-ласкательные формы имени (для входа)
      * checkIn / checkOut — персональные данные по заселению/выезду (для индивидуального плана)
      */
@@ -93,6 +94,7 @@ const weddingData = {
         {
             slug: "olga",
             welcomeName: "Ольга",
+            gender: "female",
             genitiveName: "Ольги",
             aliases: ["оля", "оленька", "олечка"],
             checkIn: {
@@ -109,6 +111,7 @@ const weddingData = {
         {
             slug: "yuriy",
             welcomeName: "Юрий",
+            gender: "male",
             genitiveName: "Юрия",
             aliases: ["юра", "юрочка"],
             checkIn: {
@@ -125,6 +128,7 @@ const weddingData = {
         {
             slug: "kseniya",
             welcomeName: "Ксения",
+            gender: "female",
             genitiveName: "Ксении",
             aliases: ["ксюша", "ксю", "ксенька"],
             checkIn: {
@@ -141,6 +145,7 @@ const weddingData = {
         {
             slug: "tatyana",
             welcomeName: "Татьяна",
+            gender: "female",
             genitiveName: "Татьяны",
             aliases: ["таня", "танечка", "танюша"],
             checkIn: {
@@ -157,6 +162,7 @@ const weddingData = {
         {
             slug: "sergey",
             welcomeName: "Сергей",
+            gender: "male",
             genitiveName: "Сергея",
             aliases: ["серёжа", "серёжка"],
             checkIn: {
@@ -177,6 +183,36 @@ const weddingData = {
      */
     links: {
         restaurantMenu: "https://ryotei.ru/atmos/"
+    },
+
+    /**
+     * Дресс-код мероприятия.
+     * common — общее правило для всех дней
+     * female / male — правила по полу гостя
+     * secondDay — общее правило на второй день
+     */
+    dressCode: {
+        common: "Спортивный и пляжный стиль не предусмотрен на оба дня.",
+        female: {
+            title: "Для девушек",
+            rules: [
+                "Исключаем чёрный, белый и красный цвета.",
+                "Единственное исключение для чёрного — строгий официальный костюм."
+            ]
+        },
+        male: {
+            title: "Для мужчин",
+            rules: [
+                "В первый день воздержитесь от кроссовок и сандалей."
+            ]
+        },
+        secondDay: {
+            title: "Второй день",
+            rules: [
+                "Обязательны кроссовки или полуспортивная обувь.",
+                "Туфли, босоножки и балетки лучше оставить дома."
+            ]
+        }
     },
 
     /**

@@ -620,6 +620,41 @@ body.no-scroll #app {
     color: #c9a96e;
 }
 
+/* --- Дресс-код --- */
+.dress-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: #1a2744;
+    text-align: center;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(201, 169, 110, 0.4);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 0 0 24px 0;
+}
+
+.dress-item {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+    padding: 8px 0 8px 22px;
+}
+
+.dress-item::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #c9a96e;
+}
+
 /* --- Ссылка «Назад» --- */
 .back-link {
     display: block;

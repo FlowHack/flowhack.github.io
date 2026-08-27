@@ -77,6 +77,7 @@
             '<p id="home-error" class="home-error">Имя не найдено. Проверьте правильность написания.</p>' +
             '<div class="home-links">' +
             '<a href="#/plan" class="home-link">План</a>' +
+            '<a href="#/dress-code" class="home-link">Дресс-код</a>' +
             '<a href="' + menuUrl + '" target="_blank" rel="noopener" class="home-link">Меню ресторана</a>' +
             '</div>' +
             '</div></div>';
@@ -157,6 +158,7 @@
         html += '<div>';
         html += '<a href="' + menuUrl + '" target="_blank" rel="noopener" class="card-btn">Меню ресторана</a>';
         html += '<a href="#/' + slug + '/plan" class="card-btn">Индивидуальный план</a>';
+        html += '<a href="#/' + slug + '/dress-code" class="card-btn">Дресс-код</a>';
         html += '</div>';
         html += '</div>';
         html += '</div>';
@@ -315,6 +317,51 @@
         return pageShell(inner);
     }
 
+    // --- Блок дресс-кода (заголовок + правила) ---
+    function dressCodeBlock(title, rules) {
+        var html = '<div class="plan-day">' +
+            '<div class="plan-day-label">' + esc(title) + '</div>';
+        rules.forEach(function (r) {
+            html += '<div class="dress-item">' + esc(r) + '</div>';
+        });
+        html += '</div>';
+        return html;
+    }
+
+    // --- Общий дресс-код (для главной) ---
+    function renderGeneralDressCode() {
+        var dc = weddingData.dressCode;
+        var backLink = currentGuestSlug ? '#/' + currentGuestSlug : '#/';
+        var backText = currentGuestSlug ? 'Назад к приглашению' : 'Назад к форме входа';
+
+        var inner = '<h1 class="page-title">Дресс-код</h1>';
+        inner += '<p class="dress-note">' + esc(dc.common) + '</p>';
+        inner += dressCodeBlock(dc.female.title, dc.female.rules);
+        inner += dressCodeBlock(dc.male.title, dc.male.rules);
+        inner += dressCodeBlock(dc.secondDay.title, dc.secondDay.rules);
+        inner += '<div class="back-link"><a href="' + backLink + '">' + esc(backText) + '</a></div>';
+
+        return pageShell(inner);
+    }
+
+    // --- Индивидуальный дресс-код (в зависимости от пола) ---
+    function renderIndividualDressCode(slug) {
+        var guest = findGuest(slug);
+        if (!guest) return renderNotFound();
+
+        currentGuestSlug = slug;
+        var dc = weddingData.dressCode;
+        var genderBlock = guest.gender === 'male' ? dc.male : dc.female;
+
+        var inner = '<h1 class="page-title">Дресс-код</h1>';
+        inner += '<p class="dress-note">' + esc(dc.common) + '</p>';
+        inner += dressCodeBlock(genderBlock.title, genderBlock.rules);
+        inner += dressCodeBlock(dc.secondDay.title, dc.secondDay.rules);
+        inner += '<div class="back-link"><a href="#/' + slug + '">Назад к приглашению</a></div>';
+
+        return pageShell(inner);
+    }
+
     // --- 404 ---
     function renderNotFound() {
         var inner = '<h1 class="error-title">Ой, приглашение не найдено!</h1>' +
@@ -352,6 +399,13 @@
             return;
         }
 
+        // #/dress-code — общий дресс-код
+        if (hash === 'dress-code') {
+            app.innerHTML = renderGeneralDressCode();
+            activateFadeIn();
+            return;
+        }
+
         // #/{slug}/plan — индивидуальный план
         var planMatch = hash.match(/^([\w-]+)\/plan$/);
         if (planMatch) {
@@ -363,6 +417,21 @@
                 return;
             }
             app.innerHTML = renderIndividualPlan(slugForPlan);
+            activateFadeIn();
+            return;
+        }
+
+        // #/{slug}/dress-code — индивидуальный дресс-код
+        var dressMatch = hash.match(/^([\w-]+)\/dress-code$/);
+        if (dressMatch) {
+            var slugForDress = dressMatch[1];
+            var guestForDress = findGuest(slugForDress);
+            if (!guestForDress) {
+                app.innerHTML = renderNotFound();
+                activateFadeIn();
+                return;
+            }
+            app.innerHTML = renderIndividualDressCode(slugForDress);
             activateFadeIn();
             return;
         }
