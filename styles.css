@@ -339,7 +339,7 @@ body.no-scroll #app {
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .card-content {
         padding: 60px 30px;
     }
@@ -387,7 +387,7 @@ body.no-scroll #app {
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .card-inner {
         padding: 48px 36px;
     }
@@ -402,7 +402,7 @@ body.no-scroll #app {
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.5);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .card-inner h1 {
         font-size: 1.6rem;
     }
@@ -423,17 +423,19 @@ body.no-scroll #app {
 
 /* --- Кнопки внутри карточки --- */
 .card-btn {
-    display: inline-block;
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin: 6px auto;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     letter-spacing: 0.04em;
     color: #1a2744;
     text-decoration: none;
     border: 1.5px solid #c9a96e;
     border-radius: 5px;
-    padding: 10px 22px;
-    margin: 6px;
+    padding: 8px 16px;
     background: rgba(255, 255, 255, 0.85);
     transition: all 0.3s ease;
     cursor: pointer;
@@ -765,4 +767,40 @@ body.no-scroll #app {
 .fade-enter.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- Мобильные размеры кнопок карточки (после базовых правил, чтобы перекрывать их) --- */
+@media (max-width: 767px) {
+    .card-btn {
+        display: block;
+        width: 100%;
+        max-width: 220px;
+        margin: 6px auto;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 340px) {
+    .card-btn {
+        display: block;
+        width: 100%;
+        max-width: 180px;
+        font-size: 0.6rem;
+        padding: 3px 7px;
+        margin: 2px auto;
+    }
+}
+
+@media (max-width: 340px) {
+    .card-inner h1 {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+        line-height: 1.25;
+    }
+    .card-inner p {
+        font-size: 0.72rem;
+        margin-bottom: 14px;
+        line-height: 1.35;
+    }
 }
