@@ -170,6 +170,24 @@
         return html;
     }
 
+    /** Подогнать содержимое карточки под экран без скролла */
+    function fitCardContent() {
+        var content = document.querySelector('.card-content');
+        var inner = document.querySelector('.card-inner');
+        if (!content || !inner) return;
+
+        var cs = window.getComputedStyle(content);
+        var padH = (parseFloat(cs.paddingLeft) || 0) + (parseFloat(cs.paddingRight) || 0);
+        var padV = (parseFloat(cs.paddingTop) || 0) + (parseFloat(cs.paddingBottom) || 0);
+
+        var availW = Math.max(1, content.clientWidth - padH);
+        var availH = Math.max(1, content.clientHeight - padV);
+
+        var scale = Math.min(1, availW / inner.offsetWidth, availH / inner.offsetHeight);
+
+        content.style.setProperty('--card-scale', String(scale));
+    }
+
     /** Инициализация анимации конверта */
     function initEnvelopeAnimation() {
         var envelope = document.getElementById('envelope-layer');
@@ -200,11 +218,19 @@
         function openEnvelope() {
             if (envelope.classList.contains('sliding-up')) return;
 
+            // Подгон под текущий размер экрана до показа карточки
+            fitCardContent();
+
             envelope.classList.add('sliding-up');
 
             // Показываем карточку через небольшую задержку
             setTimeout(function () {
                 card.classList.add('visible');
+                fitCardContent();
+                // Подгон второй раз — после отрисовки и загрузки шрифтов
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(fitCardContent);
+                });
             }, 100);
 
             // После завершения анимации — скрываем конверт
@@ -219,6 +245,14 @@
                 e.preventDefault();
                 openEnvelope();
             }
+        });
+
+        // Подгон после загрузки шрифтов и при смене ориентации экрана
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(fitCardContent);
+        }
+        window.addEventListener('orientationchange', function () {
+            setTimeout(fitCardContent, 200);
         });
     }
 

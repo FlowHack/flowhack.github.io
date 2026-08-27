@@ -311,7 +311,7 @@ body.no-scroll #app {
     transform: translateY(50px);
     transition: opacity 0.8s ease, transform 0.8s ease;
     will-change: transform, opacity;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .card-layer.visible {
@@ -327,6 +327,8 @@ body.no-scroll #app {
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
+    transform: scale(var(--card-scale, 1));
+    transform-origin: center center;
 }
 
 @media (max-width: 340px) {
